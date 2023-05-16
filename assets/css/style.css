@@ -28,14 +28,31 @@ body{
     text-shadow: 2px 2px white;
 }
 
-#username{
+#username-box{
+    display: flex;
     font-size: 75px;
     text-align: center;
     text-transform: capitalize;
     padding-bottom: 75px;
     text-shadow: 2px 2px white;
+    flex-direction: column-reverse;
+    align-items: center;
 
 }
+input{
+    height:50px;
+    width:150px;
+    background-color:black;
+    border: 2px solid yellow;
+}
+
+button{
+    height:50px;
+    width:75px;
+    background-color:black;
+    border: 2px solid yellow;
+}
+
 
 #level-selector{
     display: flex;
