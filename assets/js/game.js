@@ -49,16 +49,17 @@ function runQuiz(){
             correctAnswer: 2
         }
     ];
-    for (let i = 0; i < questionsAndAnswer.length;i++){
-        let questionAsked = questionsAndAnswer[i].question;
-        document.getElementById("question").textContent=questionAsked
+    let questionAsked = document.getElementById("question");
+    let answers=document.getElementsByTagName("li");
+    let possibleAnswer = questionsAndAnswer[0].choices
+    let currentQuestion = 0;
+    
+    
 
-        let possibleAnswer= questionsAndAnswer[i].choices
-
-        for(j = 0; j < possibleAnswer.length;j ++){
-            let possibleAnswerAsked = possibleAnswer[j];
-            document.getElementsByTagName("li").textContent= possibleAnswerAsked
+    if (currentQuestion == 0){
+        questionAsked.textContent = questionsAndAnswer[0].question
+        for (let i = 0; i <= possibleAnswer.length; i++){
+            answers[i].textContent = possibleAnswer[i]
         }
-
     }
 }
