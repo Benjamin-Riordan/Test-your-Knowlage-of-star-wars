@@ -52,16 +52,18 @@ function runQuiz(){
             correctAnswer: 2
         }
     ];
+    
     let questionAsked = document.getElementById("question");
     let answers=document.getElementsByTagName("li");
-    let possibleAnswer = questionsAndAnswer[0].choices
-    let correctAnswer = questionsAndAnswer[0].correctAnswer
     let currentQuestion = 0;
+    console.log(currentQuestion)
     
     
-
+    
     if (currentQuestion == 0){
-        questionAsked.textContent = questionsAndAnswer[0].question
+        let possibleAnswer = questionsAndAnswer[currentQuestion].choices
+        let correctAnswer = questionsAndAnswer[currentQuestion].correctAnswer
+        questionAsked.textContent = questionsAndAnswer[currentQuestion].question
         for (let i = 0; i <= possibleAnswer.length; i++){
             answers[i].textContent = possibleAnswer[i]
             answers[i].onclick = function(){
@@ -75,5 +77,75 @@ function runQuiz(){
                 }
             }
         }
+    }else if(currentQuestion == 1){
+        let possibleAnswer = questionsAndAnswer[currentQuestion].choices
+        let correctAnswer = questionsAndAnswer[currentQuestion].correctAnswer
+        questionAsked.textContent = questionsAndAnswer[currentQuestion].question
+        for (let i = 0; i <= possibleAnswer.length; i++){
+            answers[i].textContent = possibleAnswer[i]
+            answers[i].onclick = function(){
+                if (i === correctAnswer ){
+                    alert(`you got it right ${possibleAnswer[i]} was correct maybe you will make a jedi after all`)
+                    currentQuestion ++
+                    // also have score incremtation here
+                }else{
+                    alert("Im sorry thats not the right answer are you turning to the dark side")
+                    // and negative here
+                }
+            }
+        }
+    }else if (currentQuestion == 2){
+        let possibleAnswer = questionsAndAnswer[currentQuestion].choices
+        let correctAnswer = questionsAndAnswer[currentQuestion].correctAnswer
+        questionAsked.textContent = questionsAndAnswer[currentQuestion].question
+        for (let i = 0; i <= possibleAnswer.length; i++){
+            answers[i].textContent = possibleAnswer[i]
+            answers[i].onclick = function(){
+                if (i === correctAnswer ){
+                    alert(`you got it right ${possibleAnswer[i]} was correct maybe you will make a jedi after all`)
+                    currentQuestion ++
+                    // also have score incremtation here
+                }else{
+                    alert("Im sorry thats not the right answer are you turning to the dark side")
+                    // and negative here
+                }
+            }
+        }
+    }else if (currentQuestion == 3){
+        let possibleAnswer = questionsAndAnswer[currentQuestion].choices
+        let correctAnswer = questionsAndAnswer[currentQuestion].correctAnswer
+        questionAsked.textContent = questionsAndAnswer[currentQuestion].question
+        for (let i = 0; i <= possibleAnswer.length; i++){
+            answers[i].textContent = possibleAnswer[i]
+            answers[i].onclick = function(){
+                if (i === correctAnswer ){
+                    alert(`you got it right ${possibleAnswer[i]} was correct maybe you will make a jedi after all`)
+                    currentQuestion ++
+                    // also have score incremtation here
+                }else{
+                    alert("Im sorry thats not the right answer are you turning to the dark side")
+                    // and negative here
+                }
+            }
+        }
+    }else if (currentQuestion == 4){
+        let possibleAnswer = questionsAndAnswer[currentQuestion].choices
+        let correctAnswer = questionsAndAnswer[currentQuestion].correctAnswer
+        questionAsked.textContent = questionsAndAnswer[currentQuestion].question
+        for (let i = 0; i <= possibleAnswer.length; i++){
+            answers[i].textContent = possibleAnswer[i]
+            answers[i].onclick = function(){
+                if (i === correctAnswer ){
+                    alert(`you got it right ${possibleAnswer[i]} was correct maybe you will make a jedi after all`)
+                    currentQuestion ++
+                    // also have score incremtation here
+                }else{
+                    alert("Im sorry thats not the right answer are you turning to the dark side")
+                    // and negative here
+                }
+            }
+        }
+    }else(currentQuestion == 4);{
+        alert("end of quiz")
     }
 }
