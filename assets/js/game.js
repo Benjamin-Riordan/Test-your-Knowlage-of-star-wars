@@ -12,6 +12,9 @@ document.getElementById("username").addEventListener("keydown", function (event)
     }
 });
 
+
+
+
 document.addEventListener("DOMContentLoaded", function() {
     runQuiz();
 });
@@ -64,9 +67,11 @@ function runQuiz(){
             answers[i].onclick = function(){
                 if (i === correctAnswer ){
                     alert(`you got it right ${possibleAnswer[i]} was correct maybe you will make a jedi after all`)
-
+                    currentQuestion ++
+                    // also have score incremtation here
                 }else{
                     alert("Im sorry thats not the right answer are you turning to the dark side")
+                    // and negative here
                 }
             }
         }
