@@ -50,7 +50,15 @@ function runQuiz(){
         }
     ];
     for (let i = 0; i < questionsAndAnswer.length;i++){
-        let questionAsked = questionsAndAnswer[0].question
+        let questionAsked = questionsAndAnswer[i].question;
         document.getElementById("question").textContent=questionAsked
-        
-    }}
+
+        let possibleAnswer= questionsAndAnswer[i].choices
+
+        for(j = 0; j < possibleAnswer.length;j ++){
+            let possibleAnswerAsked = possibleAnswer[j];
+            document.getElementsByTagName("li").textContent= possibleAnswerAsked
+        }
+
+    }
+}
