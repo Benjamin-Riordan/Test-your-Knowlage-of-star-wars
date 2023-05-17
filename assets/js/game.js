@@ -52,6 +52,7 @@ function runQuiz(){
     let questionAsked = document.getElementById("question");
     let answers=document.getElementsByTagName("li");
     let possibleAnswer = questionsAndAnswer[0].choices
+    let correctAnswer = questionsAndAnswer[0].correctAnswer
     let currentQuestion = 0;
     
     
@@ -60,6 +61,14 @@ function runQuiz(){
         questionAsked.textContent = questionsAndAnswer[0].question
         for (let i = 0; i <= possibleAnswer.length; i++){
             answers[i].textContent = possibleAnswer[i]
+            answers[i].onclick = function(){
+                if (i === correctAnswer ){
+                    alert(`you got it right ${possibleAnswer[i]} was correct maybe you will make a jedi after all`)
+
+                }else{
+                    alert("Im sorry thats not the right answer are you turning to the dark side")
+                }
+            }
         }
     }
 }
