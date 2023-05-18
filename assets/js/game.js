@@ -16,7 +16,7 @@ document.getElementById("username").addEventListener("keydown", function (event)
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    runQuiz();
+    runQuiz()
 });
 
 function runQuiz(){
@@ -58,6 +58,10 @@ function runQuiz(){
     let questionAsked = document.getElementById("question");
     let answers=document.getElementsByTagName("li");
     let currentQuestion = 0;
+
+   
+
+       
     
     function updateScores(){
         document.getElementById("Cscore").textContent = correctScore;
@@ -91,5 +95,6 @@ function runQuiz(){
             alert("End of Quiz");
         }
     }
-    displayQuestion()
+     displayQuestion()
 }
+
