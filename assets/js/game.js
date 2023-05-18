@@ -5,20 +5,15 @@ function welcomeUser() {
      </p>`
     document.getElementById("username-box").innerHTML = welcomeMessage;
 }
-
 document.getElementById("username").addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
         welcomeUser();
     }
 });
 
-
-
-
 document.addEventListener("DOMContentLoaded", function() {
     runQuiz()
 });
-
 function runQuiz(){
     let correctScore = parseInt(document.getElementById("Cscore").textContent)
     let wrongScore = parseInt(document.getElementById("NCscore").textContent)
@@ -59,15 +54,10 @@ function runQuiz(){
     let answers=document.getElementsByTagName("li");
     let currentQuestion = 0;
 
-   
-
-       
-    
     function updateScores(){
         document.getElementById("Cscore").textContent = correctScore;
         document.getElementById("NCscore").textContent = wrongScore;
     }
-    
     
     function displayQuestion(){
         if (currentQuestion < questionsAndAnswer.length){
