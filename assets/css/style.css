@@ -88,6 +88,10 @@ button{
     text-align: center;
 }
 
+ol{
+    list-style-type: none;
+}
+
 input[type="radio"] {
     /* Hide the default radio button */
     appearance: none;
