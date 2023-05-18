@@ -65,7 +65,7 @@ function runQuiz(){
         let correctAnswer = questionsAndAnswer[currentQuestion].correctAnswer
         questionAsked.textContent = questionsAndAnswer[currentQuestion].question
         for (let i = 0; i < possibleAnswer.length; i++){
-            answers[i].textContent = possibleAnswer[i]
+            answers[i].innerHTML =`<input type=radio>   ${possibleAnswer[i]}`
             answers[i].onclick = function(){
                 if (i === correctAnswer ){
                     alert(`you got it right ${possibleAnswer[i]} was correct maybe you will make a jedi after all`)

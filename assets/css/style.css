@@ -88,9 +88,20 @@ button{
     text-align: center;
 }
 
-#answer{
-    padding: 25px;
-}
+input[type="radio"] {
+    /* Hide the default radio button */
+    appearance: none;
+    border: 2px solid yellow;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    outline: none;
+  }
+
+input[type="radio"]:hover {
+    border: 2px solid black;
+    background-color: yellow;
+  }
 
 #scores{
     padding-bottom: 15px;
