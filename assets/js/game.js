@@ -20,6 +20,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function runQuiz(){
+    let correctScore = parseInt(document.getElementById("Cscore").textContent)
+    let wrongScore = parseInt(document.getElementById("NCscore").textContent)
     let questionsAndAnswer=[
         {
             question: "What is the name of the protagonist in the original Star Wars trilogy?",
@@ -56,7 +58,11 @@ function runQuiz(){
     let questionAsked = document.getElementById("question");
     let answers=document.getElementsByTagName("li");
     let currentQuestion = 0;
-   
+    
+    function updateScores(){
+        document.getElementById("Cscore").textContent = correctScore;
+        document.getElementById("NCscore").textContent = wrongScore;
+    }
     
     
     function displayQuestion(){
@@ -70,11 +76,14 @@ function runQuiz(){
                 if (i === correctAnswer ){
                     alert(`you got it right ${possibleAnswer[i]} was correct maybe you will make a jedi after all`)
                     currentQuestion ++
+                    correctScore ++
+                    updateScores()
                     displayQuestion()
                     // also have score incremtation here
                 }else{
                     alert("Im sorry thats not the right answer are you turning to the dark side")
-                    // and negative here
+                    wrongScore ++
+                    updateScores()
                 }
             };
         }
