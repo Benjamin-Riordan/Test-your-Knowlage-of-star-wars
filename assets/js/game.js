@@ -222,11 +222,7 @@ function updateScores(){
     document.getElementById("Cscore").textContent = correctScore;
     document.getElementById("NCscore").textContent = wrongScore;
 }
-function runQuiz(){
-    let correctScore = parseInt(document.getElementById("Cscore").textContent)
-    let wrongScore = parseInt(document.getElementById("NCscore").textContent)
-  
-      
+
     let questionAsked = document.getElementById("question");
     let answers=document.getElementsByTagName("li");
     let currentQuestion = 0;
