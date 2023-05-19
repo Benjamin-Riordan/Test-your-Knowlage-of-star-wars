@@ -42,16 +42,20 @@ function levelSelect() {
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].onclick = function() {
             if (buttons[i].innerHTML == "Level 1") {
-                console.log("level 1 selected");
-                runQuiz();
+                alert("level 1 selected The quiz will now start");
+                runQuizLevel1();
             } else if (buttons[i].innerHTML == "Level 2") {
-                console.log("level 2");
+                alert("level 2 selected The quiz will now start")
+                runQuizLevel2()
             } else if (buttons[i].innerHTML == "Level 3") {
-                console.log("level 3");
+                alert("level 3 selected The quiz will now start")
+                runQuizLevel3()
             } else if (buttons[i].innerHTML == "Level 4") {
-                console.log("level 4");
+                alert("level 4 selected The quiz will now start")
+                runQuizLevel4()
             } else if (buttons[i].innerHTML == "Level 5") {
-                console.log("level 5");
+                alert("level 5 selected The quiz will now start")
+                runQuizLevel5()
             } else {
                 alert("You need to pick a level");
                 return;
@@ -61,10 +65,9 @@ function levelSelect() {
 } 
 
 document.addEventListener("DOMContentLoaded", function() {
-    
     levelSelect()
 });
-function runQuiz(){
+function runQuizLevel1(){
     let correctScore = parseInt(document.getElementById("Cscore").textContent)
     let wrongScore = parseInt(document.getElementById("NCscore").textContent)
     let questionsAndAnswer=[
@@ -98,6 +101,51 @@ function runQuiz(){
             choices: ["Darth Maul", "Darth Sidious", "Darth Tyranus", "Darth Vader himself"],
             correctAnswer: 2
         }
+    ];
+    
+    let questionAsked = document.getElementById("question");
+    let answers=document.getElementsByTagName("li");
+    let currentQuestion = 0;
+
+    function updateScores(){
+        document.getElementById("Cscore").textContent = correctScore;
+        document.getElementById("NCscore").textContent = wrongScore;
+    }
+    
+    function displayQuestion(){
+        if (currentQuestion < questionsAndAnswer.length){
+        let possibleAnswer = questionsAndAnswer[currentQuestion].choices
+        let correctAnswer = questionsAndAnswer[currentQuestion].correctAnswer
+        questionAsked.textContent = questionsAndAnswer[currentQuestion].question
+        for (let i = 0; i < possibleAnswer.length; i++){
+            answers[i].innerHTML =`<input type=radio>   ${possibleAnswer[i]}`
+            answers[i].onclick = function(){
+                if (i === correctAnswer ){
+                    alert(`you got it right ${possibleAnswer[i]} was correct maybe you will make a jedi after all`)
+                    currentQuestion ++
+                    correctScore ++
+                    updateScores()
+                    displayQuestion()
+                    // also have score incremtation here
+                }else{
+                    alert("Im sorry thats not the right answer are you turning to the dark side")
+                    wrongScore ++
+                    updateScores()
+                }
+            };
+        }
+        }else {
+            alert("End of Quiz");
+        }
+    }
+     displayQuestion()
+}
+
+function runQuizLevel2(){
+    let correctScore = parseInt(document.getElementById("Cscore").textContent)
+    let wrongScore = parseInt(document.getElementById("NCscore").textContent)
+    let questionsAndAnswer=[
+        // add in questions here
     ];
     
     let questionAsked = document.getElementById("question");
