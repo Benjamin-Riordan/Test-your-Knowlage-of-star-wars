@@ -1,14 +1,36 @@
+/** This is the first function that will grab the usersname
+ * and reprint the name insde a welcome message.
+ * it will also check if the user entered a value or not 
+*/
+
+// name of the fuction
 function welcomeUser() {
+    /**identifiying where the js code will get the name from 
+     * so name cannot be chnaged
+     * document is the whole document.
+     * getelementbyid of username ..in my html i have an input it has and id of username
+     * . value beacuse its an input feild in needs to read the value */ 
     const name = document.getElementById("username").value;
+    // checks if the user enters a name or not 
     if(name === ""){
+        // if the user doesnt enter a name it alerets and re-runs the code through and open retunn
         alert("please enter a username")
         return;
     }
+    /** welcome message is just the message to be diplayed when the user does enter a name
+     * using temlate litertals i have inserted name from above inside the weclome messsgae
+     */
     let welcomeMessage =`<p>   
      Hello ${name} ! Let's test your knowledge of Star Wars.
-     </p>`;
+     </p>`; 
+     // this line tells the js that this specicfic section is where welcome message will go 
     document.getElementById("username-box").innerHTML = welcomeMessage;
 }
+/**
+ * the next event to happen if it happens id for the user to enter a name and use the enter key to activate this code 
+ * i may chnage this to a on-mouse leave event but i will get feenabk first 
+ * this if event wil trigger when the user hits enter and then welcome user will run 
+ */
 document.getElementById("username").addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
         welcomeUser();
