@@ -43,24 +43,24 @@ function levelSelect() {
         buttons[i].onclick = function() {
             if (buttons[i].innerHTML == "Level 1") {
                 alert("level 1 selected The quiz will now start");
-                runQuizLevel1();
                 currentLevel = 0
+                displayQuestion()
             } else if (buttons[i].innerHTML == "Level 2") {
                 alert("level 2 selected The quiz will now start")
-                runQuizLevel2()
                 currentLevel = 1
+                displayQuestion()
             } else if (buttons[i].innerHTML == "Level 3") {
                 alert("level 3 selected The quiz will now start")
-                runQuizLevel3()
                 currentLevel = 2
+                displayQuestion()
             } else if (buttons[i].innerHTML == "Level 4") {
                 alert("level 4 selected The quiz will now start")
-                runQuizLevel4()
                 currentLevel = 3
+                displayQuestion()
             } else if (buttons[i].innerHTML == "Level 5") {
                 alert("level 5 selected The quiz will now start")
-                runQuizLevel5()
                 currentLevel = 4
+                displayQuestion()
             } else {
                 alert("You need to pick a level");
                 return;
@@ -72,7 +72,8 @@ function levelSelect() {
 document.addEventListener("DOMContentLoaded", function() {
     levelSelect()
 });
-function runQuizLevel1(){
+let currentLevel = 0
+function runQuiz(){
     let correctScore = parseInt(document.getElementById("Cscore").textContent)
     let wrongScore = parseInt(document.getElementById("NCscore").textContent)
     let questionsAndAnswer=[[
@@ -106,40 +107,36 @@ function runQuizLevel1(){
             choices: ["Darth Maul", "Darth Sidious", "Darth Tyranus", "Darth Vader himself"],
             correctAnswer: 2
         }
-    ]
-    [
+        ]],
+        [[
         {
             question: "What rotagonistr Wars trilogy?",
             choices: ["Luke Skywalker", "Han Solo", "Darth Vader", "Princess Leia"],
             correctAnswer: 0
         },
-    ],
-    [
+        ]],
+        [[
         {
             question: "What is the name of the protar Wars trilogy?",
             choices: ["Luke Skywalker", "Han Solo", "Darth Vader", "Princess Leia"],
             correctAnswer: 0
         },
-    ],
-    [
+        ]],
+        [[
         {
             question: "What is rotagonist in the original Star Wars trilogy?",
             choices: ["Luke Skywalker", "Han Solo", "Darth Vader", "Princess Leia"],
             correctAnswer: 0
         },
-    ],
-    [
+        ]],
+        [[
         {
             question: "n the original Star Wars trilogy?",
             choices: ["Luke Skywalker", "Han Solo", "Darth Vader", "Princess Leia"],
             correctAnswer: 0
         },
-    ]
-
-
-
-];
-    
+        ]];
+      
     let questionAsked = document.getElementById("question");
     let answers=document.getElementsByTagName("li");
     let currentQuestion = 0;
@@ -150,55 +147,10 @@ function runQuizLevel1(){
     }
     
     function displayQuestion(){
-        if (currentQuestion < questionsAndAnswer.length){
-        let possibleAnswer = questionsAndAnswer[currentQuestion].choices
-        let correctAnswer = questionsAndAnswer[currentQuestion].correctAnswer
-        questionAsked.textContent = questionsAndAnswer[currentQuestion].question
-        for (let i = 0; i < possibleAnswer.length; i++){
-            answers[i].innerHTML =`<input type=radio>   ${possibleAnswer[i]}`
-            answers[i].onclick = function(){
-                if (i === correctAnswer ){
-                    alert(`you got it right ${possibleAnswer[i]} was correct maybe you will make a jedi after all`)
-                    currentQuestion ++
-                    correctScore ++
-                    updateScores()
-                    displayQuestion()
-                    // also have score incremtation here
-                }else{
-                    alert("Im sorry thats not the right answer are you turning to the dark side")
-                    wrongScore ++
-                    updateScores()
-                }
-            };
-        }
-        }else {
-            alert("End of Quiz");
-        }
-    }
-     displayQuestion()
-}
-
-function runQuizLevel2(){
-    let correctScore = parseInt(document.getElementById("Cscore").textContent)
-    let wrongScore = parseInt(document.getElementById("NCscore").textContent)
-    let questionsAndAnswer=[
-        // add in questions here
-    ];
-    
-    let questionAsked = document.getElementById("question");
-    let answers=document.getElementsByTagName("li");
-    let currentQuestion = 0;
-
-    function updateScores(){
-        document.getElementById("Cscore").textContent = correctScore;
-        document.getElementById("NCscore").textContent = wrongScore;
-    }
-    
-    function displayQuestion(){
-        if (currentQuestion < questionsAndAnswer.length){
-        let possibleAnswer = questionsAndAnswer[currentQuestion].choices
-        let correctAnswer = questionsAndAnswer[currentQuestion].correctAnswer
-        questionAsked.textContent = questionsAndAnswer[currentQuestion].question
+        if (currentQuestion < questionsAndAnswer[0][0].length){
+        let possibleAnswer = questionsAndAnswer[currentLevel][currentQuestion].choices
+        let correctAnswer = questionsAndAnswer[currentLevel][currentQuestion].correctAnswer
+        questionAsked.textContent = questionsAndAnswer[currentLevel][currentQuestion].question
         for (let i = 0; i < possibleAnswer.length; i++){
             answers[i].innerHTML =`<input type=radio>   ${possibleAnswer[i]}`
             answers[i].onclick = function(){
