@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function runQuizLevel1(){
     let correctScore = parseInt(document.getElementById("Cscore").textContent)
     let wrongScore = parseInt(document.getElementById("NCscore").textContent)
-    let questionsAndAnswer=[
+    let questionsAndAnswer=[[
         {
             question: "What is the name of the protagonist in the original Star Wars trilogy?",
             choices: ["Luke Skywalker", "Han Solo", "Darth Vader", "Princess Leia"],
@@ -106,7 +106,39 @@ function runQuizLevel1(){
             choices: ["Darth Maul", "Darth Sidious", "Darth Tyranus", "Darth Vader himself"],
             correctAnswer: 2
         }
-    ];
+    ]
+    [
+        {
+            question: "What rotagonistr Wars trilogy?",
+            choices: ["Luke Skywalker", "Han Solo", "Darth Vader", "Princess Leia"],
+            correctAnswer: 0
+        },
+    ],
+    [
+        {
+            question: "What is the name of the protar Wars trilogy?",
+            choices: ["Luke Skywalker", "Han Solo", "Darth Vader", "Princess Leia"],
+            correctAnswer: 0
+        },
+    ],
+    [
+        {
+            question: "What is rotagonist in the original Star Wars trilogy?",
+            choices: ["Luke Skywalker", "Han Solo", "Darth Vader", "Princess Leia"],
+            correctAnswer: 0
+        },
+    ],
+    [
+        {
+            question: "n the original Star Wars trilogy?",
+            choices: ["Luke Skywalker", "Han Solo", "Darth Vader", "Princess Leia"],
+            correctAnswer: 0
+        },
+    ]
+
+
+
+];
     
     let questionAsked = document.getElementById("question");
     let answers=document.getElementsByTagName("li");
