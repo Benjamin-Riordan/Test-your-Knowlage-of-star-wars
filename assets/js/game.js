@@ -186,3 +186,138 @@ function runQuizLevel2(){
      displayQuestion()
 }
 
+function runQuizLevel3(){
+    let correctScore = parseInt(document.getElementById("Cscore").textContent)
+    let wrongScore = parseInt(document.getElementById("NCscore").textContent)
+    let questionsAndAnswer=[
+        // add in questions here
+    ];
+    
+    let questionAsked = document.getElementById("question");
+    let answers=document.getElementsByTagName("li");
+    let currentQuestion = 0;
+
+    function updateScores(){
+        document.getElementById("Cscore").textContent = correctScore;
+        document.getElementById("NCscore").textContent = wrongScore;
+    }
+    
+    function displayQuestion(){
+        if (currentQuestion < questionsAndAnswer.length){
+        let possibleAnswer = questionsAndAnswer[currentQuestion].choices
+        let correctAnswer = questionsAndAnswer[currentQuestion].correctAnswer
+        questionAsked.textContent = questionsAndAnswer[currentQuestion].question
+        for (let i = 0; i < possibleAnswer.length; i++){
+            answers[i].innerHTML =`<input type=radio>   ${possibleAnswer[i]}`
+            answers[i].onclick = function(){
+                if (i === correctAnswer ){
+                    alert(`you got it right ${possibleAnswer[i]} was correct maybe you will make a jedi after all`)
+                    currentQuestion ++
+                    correctScore ++
+                    updateScores()
+                    displayQuestion()
+                    // also have score incremtation here
+                }else{
+                    alert("Im sorry thats not the right answer are you turning to the dark side")
+                    wrongScore ++
+                    updateScores()
+                }
+            };
+        }
+        }else {
+            alert("End of Quiz");
+        }
+    }
+     displayQuestion()
+}
+
+function runQuizLevel4(){
+    let correctScore = parseInt(document.getElementById("Cscore").textContent)
+    let wrongScore = parseInt(document.getElementById("NCscore").textContent)
+    let questionsAndAnswer=[
+        // add in questions here
+    ];
+    
+    let questionAsked = document.getElementById("question");
+    let answers=document.getElementsByTagName("li");
+    let currentQuestion = 0;
+
+    function updateScores(){
+        document.getElementById("Cscore").textContent = correctScore;
+        document.getElementById("NCscore").textContent = wrongScore;
+    }
+    
+    function displayQuestion(){
+        if (currentQuestion < questionsAndAnswer.length){
+        let possibleAnswer = questionsAndAnswer[currentQuestion].choices
+        let correctAnswer = questionsAndAnswer[currentQuestion].correctAnswer
+        questionAsked.textContent = questionsAndAnswer[currentQuestion].question
+        for (let i = 0; i < possibleAnswer.length; i++){
+            answers[i].innerHTML =`<input type=radio>   ${possibleAnswer[i]}`
+            answers[i].onclick = function(){
+                if (i === correctAnswer ){
+                    alert(`you got it right ${possibleAnswer[i]} was correct maybe you will make a jedi after all`)
+                    currentQuestion ++
+                    correctScore ++
+                    updateScores()
+                    displayQuestion()
+                    // also have score incremtation here
+                }else{
+                    alert("Im sorry thats not the right answer are you turning to the dark side")
+                    wrongScore ++
+                    updateScores()
+                }
+            };
+        }
+        }else {
+            alert("End of Quiz");
+        }
+    }
+     displayQuestion()
+}
+
+function runQuizLevel5(){
+    let correctScore = parseInt(document.getElementById("Cscore").textContent)
+    let wrongScore = parseInt(document.getElementById("NCscore").textContent)
+    let questionsAndAnswer=[
+        // add in questions here
+    ];
+    
+    let questionAsked = document.getElementById("question");
+    let answers=document.getElementsByTagName("li");
+    let currentQuestion = 0;
+
+    function updateScores(){
+        document.getElementById("Cscore").textContent = correctScore;
+        document.getElementById("NCscore").textContent = wrongScore;
+    }
+    
+    function displayQuestion(){
+        if (currentQuestion < questionsAndAnswer.length){
+        let possibleAnswer = questionsAndAnswer[currentQuestion].choices
+        let correctAnswer = questionsAndAnswer[currentQuestion].correctAnswer
+        questionAsked.textContent = questionsAndAnswer[currentQuestion].question
+        for (let i = 0; i < possibleAnswer.length; i++){
+            answers[i].innerHTML =`<input type=radio>   ${possibleAnswer[i]}`
+            answers[i].onclick = function(){
+                if (i === correctAnswer ){
+                    alert(`you got it right ${possibleAnswer[i]} was correct maybe you will make a jedi after all`)
+                    currentQuestion ++
+                    correctScore ++
+                    updateScores()
+                    displayQuestion()
+                    // also have score incremtation here
+                }else{
+                    alert("Im sorry thats not the right answer are you turning to the dark side")
+                    wrongScore ++
+                    updateScores()
+                }
+            };
+        }
+        }else {
+            alert("End of Quiz");
+        }
+    }
+     displayQuestion()
+}
+
