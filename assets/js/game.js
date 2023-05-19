@@ -73,81 +73,165 @@ document.addEventListener("DOMContentLoaded", function() {
     levelSelect()
 });
 let currentLevel = 0
+let correctScore = 0
+let wrongScore = 0
+
+function updateScores(){
+    document.getElementById("Cscore").textContent = correctScore;
+    document.getElementById("NCscore").textContent = wrongScore;
+}
 function runQuiz(){
     let correctScore = parseInt(document.getElementById("Cscore").textContent)
     let wrongScore = parseInt(document.getElementById("NCscore").textContent)
-    let questionsAndAnswer=[[
-        {
-            question: "What is the name of the protagonist in the original Star Wars trilogy?",
-            choices: ["Luke Skywalker", "Han Solo", "Darth Vader", "Princess Leia"],
-            correctAnswer: 0
-        },
-        {
-            question: "Which planet is home to Chewbacca, the Wookiee?",
-            choices: ["Hoth", "Tatooine", "Endor", "Kashyyyk"],
-            correctAnswer: 3
-        },
-        {
-            question: "Who is the master Jedi that trained Obi-Wan Kenobi?",
-            choices: ["Qui-Gon Jinn", "Yoda", "Mace Windu", "Count Dooku"],
-            correctAnswer: 0
-        },
-        {
-            question: "What is the primary weapon used by Jedi Knights?",
-            choices: ["Lightsaber", "Blaster", "Bowcaster", "Vibroblade"],
-            correctAnswer: 0
-        },
-        {
-            question: "Which famous smuggler is the captain of the Millennium Falcon?",
-            choices: ["Lando Calrissian", "Poe Dameron", "Jabba the Hutt", "Han Solo"],
-            correctAnswer: 3
-        },
-        {
-            question: "Who is Darth Vader's Sith apprentice in 'Star Wars: Episode III - Revenge of the Sith'?",
-            choices: ["Darth Maul", "Darth Sidious", "Darth Tyranus", "Darth Vader himself"],
-            correctAnswer: 2
-        }
-        ]],
-        [[
-        {
-            question: "What rotagonistr Wars trilogy?",
-            choices: ["Luke Skywalker", "Han Solo", "Darth Vader", "Princess Leia"],
-            correctAnswer: 0
-        },
-        ]],
-        [[
-        {
-            question: "What is the name of the protar Wars trilogy?",
-            choices: ["Luke Skywalker", "Han Solo", "Darth Vader", "Princess Leia"],
-            correctAnswer: 0
-        },
-        ]],
-        [[
-        {
-            question: "What is rotagonist in the original Star Wars trilogy?",
-            choices: ["Luke Skywalker", "Han Solo", "Darth Vader", "Princess Leia"],
-            correctAnswer: 0
-        },
-        ]],
-        [[
-        {
-            question: "n the original Star Wars trilogy?",
-            choices: ["Luke Skywalker", "Han Solo", "Darth Vader", "Princess Leia"],
-            correctAnswer: 0
-        },
-        ]];
+    let questionsAndAnswer = [
+  // Level 1
+  [
+    {
+      question: "What is the name of the protagonist in the original Star Wars trilogy?",
+      choices: ["Luke Skywalker", "Han Solo", "Darth Vader", "Princess Leia"],
+      correctAnswer: 0
+    },
+    {
+      question: "Which planet is home to Chewbacca, the Wookiee?",
+      choices: ["Hoth", "Tatooine", "Endor", "Kashyyyk"],
+      correctAnswer: 3
+    },
+    {
+      question: "Who is the master Jedi that trained Obi-Wan Kenobi?",
+      choices: ["Qui-Gon Jinn", "Yoda", "Mace Windu", "Count Dooku"],
+      correctAnswer: 1
+    },
+    {
+      question: "What is the primary weapon used by Jedi Knights?",
+      choices: ["Lightsaber", "Blaster", "Bowcaster", "Vibroblade"],
+      correctAnswer: 0
+    },
+    {
+      question: "Which famous smuggler is the captain of the Millennium Falcon?",
+      choices: ["Lando Calrissian", "Poe Dameron", "Jabba the Hutt", "Han Solo"],
+      correctAnswer: 3
+    }
+  ],
+  // Level 2
+  [
+    {
+      question: "Who is Darth Vader's Sith apprentice in 'Star Wars: Episode III - Revenge of the Sith'?",
+      choices: ["Darth Maul", "Darth Sidious", "Darth Tyranus", "Darth Vader himself"],
+      correctAnswer: 2
+    },
+    {
+      question: "What is the name of the desert planet where Anakin Skywalker was discovered?",
+      choices: ["Hoth", "Tatooine", "Endor", "Kashyyyk"],
+      correctAnswer: 1
+    },
+    {
+      question: "Which character famously said, 'I've got a bad feeling about this'?",
+      choices: ["Han Solo", "Luke Skywalker", "Princess Leia", "Obi-Wan Kenobi"],
+      correctAnswer: 0
+    },
+    {
+      question: "What is the name of the bounty hunter who captures Han Solo in 'The Empire Strikes Back'?",
+      choices: ["Boba Fett", "Jango Fett", "IG-88", "Dengar"],
+      correctAnswer: 0
+    },
+    {
+      question: "Who is Luke Skywalker's twin sister?",
+      choices: ["Rey", "Padmé Amidala", "Leia Organa", "Ahsoka Tano"],
+      correctAnswer: 2
+    }
+  ],
+  // Level 3
+  [
+    {
+      question: "Who is the Sith Lord ruling the Galactic Empire in the original Star Wars trilogy?",
+      choices: ["Darth Vader", "Darth Sidious", "Darth Maul", "Darth Tyranus"],
+      correctAnswer: 1
+    },
+    {
+      question: "What is the name of Han Solo's ship?",
+      choices: ["X-wing", "TIE Fighter", "Star Destroyer", "Millennium Falcon"],
+      correctAnswer: 3
+    },
+    {
+      question: "Which planet is destroyed by the Death Star in 'A New Hope'?",
+      choices: ["Alderaan", "Naboo", "Coruscant", "Kamino"],
+      correctAnswer: 0
+    },
+    {
+      question: "Who is the leader of the Rebel Alliance?",
+      choices: ["Mon Mothma", "Admiral Ackbar", "General Leia Organa", "Luke Skywalker"],
+      correctAnswer: 0
+    },
+    {
+      question: "What is the name of the Imperial walker vehicles used by the Empire?",
+      choices: ["AT-AT", "AT-ST", "AT-RT", "AT-TE"],
+      correctAnswer: 0
+    }
+  ],
+  // Level 4
+  [
+    {
+      question: "Who is the actor that portrays Han Solo in the Star Wars films?",
+      choices: ["Mark Hamill", "Harrison Ford", "Carrie Fisher", "Anthony Daniels"],
+      correctAnswer: 1
+    },
+    {
+      question: "What is the name of the Sith Lord who killed Qui-Gon Jinn in 'The Phantom Menace'?",
+      choices: ["Darth Vader", "Darth Sidious", "Darth Maul", "Darth Tyranus"],
+      correctAnswer: 2
+    },
+    {
+      question: "Which bounty hunter in 'The Empire Strikes Back' is disguised as a protocol droid?",
+      choices: ["Bossk", "Zuckuss", "IG-88", "4-LOM"],
+      correctAnswer: 3
+    },
+    {
+      question: "Who is the pilot of the Millennium Falcon in 'The Force Awakens'?",
+      choices: ["Lando Calrissian", "Poe Dameron", "Chewbacca", "Kylo Ren"],
+      correctAnswer: 1
+    },
+    {
+      question: "Which color lightsaber does Mace Windu wield?",
+      choices: ["Blue", "Green", "Red", "Purple"],
+      correctAnswer: 3
+    }
+  ],
+  // Level 5
+  [
+    {
+      question: "What is the name of the Jedi master who discovered Anakin Skywalker?",
+      choices: ["Qui-Gon Jinn", "Obi-Wan Kenobi", "Yoda", "Mace Windu"],
+      correctAnswer: 0
+    },
+    {
+      question: "Which actor portrays Luke Skywalker in the Star Wars films?",
+      choices: ["Mark Hamill", "Harrison Ford", "Carrie Fisher", "Billy Dee Williams"],
+      correctAnswer: 0
+    },
+    {
+      question: "What is the name of the Sith Lord who killed Qui-Gon Jinn in 'The Phantom Menace'?",
+      choices: ["Darth Vader", "Darth Sidious", "Darth Maul", "Darth Tyranus"],
+      correctAnswer: 2
+    },
+    {
+      question: "Who is the pilot of the Millennium Falcon in 'The Force Awakens'?",
+      choices: ["Lando Calrissian", "Poe Dameron", "Chewbacca", "Kylo Ren"],
+      correctAnswer: 1
+    },
+    {
+      question: "Which color lightsaber does Mace Windu wield?",
+      choices: ["Blue", "Green", "Red", "Purple"],
+      correctAnswer: 3
+    }
+  ]
+];
       
     let questionAsked = document.getElementById("question");
     let answers=document.getElementsByTagName("li");
     let currentQuestion = 0;
 
-    function updateScores(){
-        document.getElementById("Cscore").textContent = correctScore;
-        document.getElementById("NCscore").textContent = wrongScore;
-    }
-    
     function displayQuestion(){
-        if (currentQuestion < questionsAndAnswer[0][0].length){
+        if (currentQuestion < questionsAndAnswer[currentLevel][currentQuestion].length){
         let possibleAnswer = questionsAndAnswer[currentLevel][currentQuestion].choices
         let correctAnswer = questionsAndAnswer[currentLevel][currentQuestion].correctAnswer
         questionAsked.textContent = questionsAndAnswer[currentLevel][currentQuestion].question
