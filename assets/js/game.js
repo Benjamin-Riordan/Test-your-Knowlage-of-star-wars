@@ -222,12 +222,12 @@ function updateScores(){
     document.getElementById("Cscore").textContent = correctScore;
     document.getElementById("NCscore").textContent = wrongScore;
 }
-
+function displayQuestion(){
     let questionAsked = document.getElementById("question");
     let answers=document.getElementsByTagName("li");
     let currentQuestion = 0;
 
-    function displayQuestion(){
+    
         if (currentQuestion < questionsAndAnswer[currentLevel][currentQuestion].length){
         let possibleAnswer = questionsAndAnswer[currentLevel][currentQuestion].choices
         let correctAnswer = questionsAndAnswer[currentLevel][currentQuestion].correctAnswer
