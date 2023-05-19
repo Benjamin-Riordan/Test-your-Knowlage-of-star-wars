@@ -37,8 +37,32 @@ document.getElementById("username").addEventListener("keydown", function (event)
     } 
 });
 
+function levelSelect() {
+    let buttons = document.getElementsByClassName("Level-selc");
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].onclick = function() {
+            if (buttons[i].innerHTML == "Level 1") {
+                console.log("level 1 selected");
+                runQuiz();
+            } else if (buttons[i].innerHTML == "Level 2") {
+                console.log("level 2");
+            } else if (buttons[i].innerHTML == "Level 3") {
+                console.log("level 3");
+            } else if (buttons[i].innerHTML == "Level 4") {
+                console.log("level 4");
+            } else if (buttons[i].innerHTML == "Level 5") {
+                console.log("level 5");
+            } else {
+                alert("You need to pick a level");
+                return;
+            }
+        };
+    }
+} 
+
 document.addEventListener("DOMContentLoaded", function() {
-    runQuiz()
+    
+    levelSelect()
 });
 function runQuiz(){
     let correctScore = parseInt(document.getElementById("Cscore").textContent)
