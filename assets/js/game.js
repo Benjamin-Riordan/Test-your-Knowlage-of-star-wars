@@ -235,7 +235,33 @@ function runQuizLevel4(){
     let correctScore = parseInt(document.getElementById("Cscore").textContent)
     let wrongScore = parseInt(document.getElementById("NCscore").textContent)
     let questionsAndAnswer=[
-        // add in questions here
+        
+            {
+              question: "Who is Darth Vader's Sith apprentice in 'Star Wars: Episode III - Revenge of the Sith'?",
+              choices: ["Darth Maul", "Darth Sidious", "Darth Tyranus", "Darth Vader himself"],
+              correctAnswer: 2
+            },
+            {
+              question: "What is the name of the desert planet where Anakin Skywalker was discovered?",
+              choices: ["Hoth", "Tatooine", "Endor", "Kashyyyk"],
+              correctAnswer: 1
+            },
+            {
+              question: "Which character famously said, 'I've got a bad feeling about this'?",
+              choices: ["Han Solo", "Luke Skywalker", "Princess Leia", "Obi-Wan Kenobi"],
+              correctAnswer: 0
+            },
+            {
+              question: "What is the name of the bounty hunter who captures Han Solo in 'The Empire Strikes Back'?",
+              choices: ["Boba Fett", "Jango Fett", "IG-88", "Dengar"],
+              correctAnswer: 0
+            },
+            {
+              question: "Who is Luke Skywalker's twin sister?",
+              choices: ["Rey", "Padmé Amidala", "Leia Organa", "Ahsoka Tano"],
+              correctAnswer: 2
+            }
+          
     ];
     
     let questionAsked = document.getElementById("question");
