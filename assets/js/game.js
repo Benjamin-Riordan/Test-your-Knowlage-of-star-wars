@@ -44,18 +44,23 @@ function levelSelect() {
             if (buttons[i].innerHTML == "Level 1") {
                 alert("level 1 selected The quiz will now start");
                 runQuizLevel1();
+                currentLevel = 0
             } else if (buttons[i].innerHTML == "Level 2") {
                 alert("level 2 selected The quiz will now start")
                 runQuizLevel2()
+                currentLevel = 1
             } else if (buttons[i].innerHTML == "Level 3") {
                 alert("level 3 selected The quiz will now start")
                 runQuizLevel3()
+                currentLevel = 2
             } else if (buttons[i].innerHTML == "Level 4") {
                 alert("level 4 selected The quiz will now start")
                 runQuizLevel4()
+                currentLevel = 3
             } else if (buttons[i].innerHTML == "Level 5") {
                 alert("level 5 selected The quiz will now start")
                 runQuizLevel5()
+                currentLevel = 4
             } else {
                 alert("You need to pick a level");
                 return;
